@@ -4,11 +4,9 @@ Replication package for:
 
 > Zhang, Y., Fan, J., Liu, Y., Zhang, W., & Yan, C. When does modelling ambiguous credit help predict human choice across feedback formats? A prespecified transfer benchmark. Manuscript submitted to *Behavior Research Methods*.
 
-**Download:** the complete package (code, protocols, certificates, trained weights; 2,533 files) is attached to release [v1.0.0](https://github.com/niyaobuyaochibl/credit-transfer-benchmark/releases/tag/v1.0.0) as eplication_package.zip\. Unzip it and run \python replication_package/verify_package.py\ to check every file against \MANIFEST.sha256\.
+**Download:** the complete package (code, protocols, certificates, trained weights; 2,533 files) is attached to release [v1.0.0](https://github.com/niyaobuyaochibl/credit-transfer-benchmark/releases/tag/v1.0.0) as `replication_package.zip`. Unzip it and run `python replication_package/verify_package.py` to check every file against `MANIFEST.sha256`.
 
 Contact: Jingjing Fan (fjj1960@hebiace.edu.cn), School of Information Engineering, Hebei University of Architecture.
-
-Paper: "When does modelling ambiguous credit help predict human choice across feedback formats? A prespecified transfer benchmark" (submitted to *Behavior Research Methods*).
 
 Run `python verify_package.py` to check every file against `MANIFEST.sha256`. Supplementary Table S1 (`manuscript_20261015/supplement_S1.md`) maps every number in the paper to a certificate file and SHA-256 hash in this package.
 
