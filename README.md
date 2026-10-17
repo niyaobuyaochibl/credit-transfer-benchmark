@@ -8,11 +8,28 @@ Replication package for:
 
 Contact: Jingjing Fan (fjj1960@hebiace.edu.cn), School of Information Engineering, Hebei University of Architecture.
 
+## Toolkit
+
+[`toolkit/`](toolkit) contains `transfer_check`, a small NumPy-only Python package that implements the six-step checklist from the paper (Table 4) for any model that outputs choice probabilities, with tests and a worked example on simulated data that runs in a few seconds:
+
+```
+cd toolkit
+python examples/two_format_bandit.py
+```
+
+See [`toolkit/README.md`](toolkit/README.md) for the steps and the functions that implement them.
+
+## Licence
+
+Code in this repository is released under the MIT licence (`LICENSE`). The public datasets keep the licences of their original authors and are not redistributed here.
+
+## Replication package
+
 Run `python verify_package.py` to check every file against `MANIFEST.sha256`. Supplementary Table S1 (`manuscript_20261015/supplement_S1.md`) maps every number in the paper to a certificate file and SHA-256 hash in this package.
 
-## Reusable components
+### Study-specific reusable components
 
-These files can be adapted to other datasets without the study-specific models (see the checklist in the Discussion of the paper):
+These files from the study can be adapted to other datasets without the study-specific models:
 
 | File | What it does |
 |---|---|
@@ -21,7 +38,7 @@ These files can be adapted to other datasets without the study-specific models (
 | `feedback_transfer_method_v1_20261012/networks.py` | Causal predictors, including the summary-input control and the packet encoding of feedback. |
 | `feedback_transfer_amendment_20261014/a1r5.py` | Recoverability study: refits candidate families on simulated learners with early stopping and reports a confusion matrix. |
 
-## Layout
+### Layout
 
 Directories keep the names used during the study, so that hashes recorded inside protocols and manifests still resolve.
 
@@ -36,12 +53,12 @@ Directories keep the names used during the study, so that hashes recorded inside
 | `within_person_feedback_public_triage_*`, `dispersed_feedback_*` | Scripts that download the public data from the original repositories, verify file hashes and build the event files used by the models. |
 | `manuscript_20261015/` | Manuscript source, figure and supplementary-table scripts that re-verify certificate hashes before plotting. |
 
-## Data
+### Data
 
 No raw participant data are redistributed. Obtain them from the original repositories (Maulhardt et al., 2026: https://osf.io/rp56b/ ; Cotet et al., 2026: https://osf.io/rnwxb/ ; Moran et al., 2019: the OSF deposit linked from the article) and rebuild the event files with the scripts above; the build scripts check source hashes.
 
 `withheld_and_missing.json` lists, with frozen hashes, (i) derived files that contain participants' trial-by-trial choices and are withheld until the licence of the first dataset is confirmed, (ii) frozen artifacts that are not part of this package, and (iii) a few preflight and status records that were regenerated after the freeze, so the packaged copy differs from the frozen hash. These are verification records, not data, weights or results files.
 
-## Environment
+### Environment
 
 Python 3.13, PyTorch, NumPy, SciPy, threadpoolctl, Matplotlib. The main neural fits ran on one GPU instance; CPU execution is supported with one thread per process. Exact package versions are recorded in the `versions` field of each protocol.
