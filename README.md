@@ -2,13 +2,24 @@
 
 Replication package for:
 
-> Zhang, Y., Fan, J., Liu, Y., Zhang, W., & Yan, C. When does modelling ambiguous credit help predict human choice across feedback formats? A prespecified transfer benchmark. Manuscript submitted to *Behavior Research Methods*.
+> Zhang, Y., Fan, J., Liu, Y., Zhang, W., & Yan, C. Evaluating models of human choice when feedback format changes: Input-representation controls, identifiability checks and second-task tests. Manuscript submitted to *Behavior Research Methods*.
 
 **Download:** the complete package (code, protocols, certificates, trained weights; 2,533 files) is attached to release [v1.0.0](https://github.com/niyaobuyaochibl/credit-transfer-benchmark/releases/tag/v1.0.0) as `replication_package.zip`. Unzip it and run `python replication_package/verify_package.py` to check every file against `MANIFEST.sha256`.
 
 Contact: Jingjing Fan (fjj1960@hebiace.edu.cn), School of Information Engineering, Hebei University of Architecture.
 
 Run `python verify_package.py` to check every file against `MANIFEST.sha256`. Supplementary Table S1 (`manuscript_20261015/supplement_S1.md`) maps every number in the paper to a certificate file and SHA-256 hash in this package.
+
+## Reusable components
+
+These files can be adapted to other datasets without the study-specific models (see the checklist in the Discussion of the paper):
+
+| File | What it does |
+|---|---|
+| `feedback_transfer_method_v1_20261012/study_statistics.py` | Estimands, participant-level paired bootstrap stratified by a grouping variable, calibration and the fixed baseline-selection rule, as pure array functions. |
+| `feedback_transfer_method_v1_20261012/final_gate.py` | Fail-closed gate: checks every frozen asset against its hash, refuses to refreeze once held-out access has started, and binds the manifest to the access journal written at first access. |
+| `feedback_transfer_method_v1_20261012/networks.py` | Causal predictors, including the summary-input control and the packet encoding of feedback. |
+| `feedback_transfer_amendment_20261014/a1r5.py` | Recoverability study: refits candidate families on simulated learners with early stopping and reports a confusion matrix. |
 
 ## Layout
 
