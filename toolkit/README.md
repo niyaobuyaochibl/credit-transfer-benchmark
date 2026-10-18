@@ -18,7 +18,7 @@ python examples/two_format_bandit.py
 |---|---|---|
 | 1. Define the shift | Write each format as an observation matrix `F` (observed x latent outcome contributions) and report each transfer direction separately. `common_observation` returns the outcome information that every format reveals. | `common_observation`, `project`; directions in `transfer_contrast` |
 | 2. Add a shift-invariant control | Include a model that reads only the features from `common_observation`, so that its input is identical under every format. Match the candidate's parameter count as well. | `project` |
-| 3. Fix the comparison before testing | Pick the baseline on development people by a fixed rule, freeze code, fitted parameters and the selection, then open the held-out data once. The primary contrast is a person-level paired bootstrap stratified by design (for example, which format came first). | `select_baseline`, `Gate`, `transfer_contrast` |
+| 3. Fix the comparison before testing | Pick the baseline on development people by a fixed rule, plan the number of held-out people for the smallest effect of interest, freeze code, fitted parameters and the selection, then open the held-out data once. The primary contrast is a person-level paired bootstrap stratified by design (for example, which format came first). | `select_baseline`, `Gate`, `transfer_contrast` |
 | 4. Check identifiability | Simulate learners with known mechanisms under each format, fit every candidate and see whether each mechanism is recovered. Models with identical predictions are reported as ties. | `recoverability` |
 | 5. Make effects interpretable | Report per-person counts and calibration next to mean negative log-likelihood, and convert per-choice differences into nats per session. | `person_scores`, `calibration`, `per_session` |
 | 6. Test the winner on a second task | Refit all models on a task with a different observation structure and check where the transfer winner ranks before treating it as the reference. | (your models; scored with `person_scores`) |
@@ -37,6 +37,14 @@ The output (seed fixed in the script) illustrates why each step matters:
 - **Step 6.** On a second task (two-trial delay, component-wise feedback), the transfer winner `single_credit` ranks last of three.
 
 The script writes a full report, the frozen manifest and the access journal to `examples/output/`.
+
+## Reproducing the paper's primary contrast
+
+`examples/reproduce_paper.py` reads `examples/paper_heldout_contrasts.json`, which holds, for each of the 28 held-out participants, the session order and the two directional contrasts NLL(B\*) − NLL(multi-credit) from the paper's frozen results certificate (its SHA-256 is recorded in the file; no trial-level data are included). With the paper's bootstrap seed, `transfer_contrast` reproduces the primary contrast (−0.0252, 95% CI −0.0328 to −0.0178), both directional contrasts and the failed decision rule exactly:
+
+```
+python examples/reproduce_paper.py
+```
 
 ## Limits
 

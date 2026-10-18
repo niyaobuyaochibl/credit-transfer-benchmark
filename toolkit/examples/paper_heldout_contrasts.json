@@ -1,0 +1,175 @@
+{
+ "description": "Per-participant held-out contrasts of the paper: NLL(B*) minus NLL(multi-credit), nats per valid choice; negative values favour B*. One entry per held-out participant, in the order of the certificate.",
+ "source_certificate": "feedback_transfer_method_v1_20261012/final/results.json",
+ "source_sha256": "c4644262dd88c697e5fcea9acf6584e8f652598b7598d58540ec27d24d84b334",
+ "bootstrap": {
+  "draws": 50000,
+  "seed": 610753,
+  "strata": "session_order"
+ },
+ "published": {
+  "primary": {
+   "mean": -0.025242293640405537,
+   "ci95": [
+    -0.03276573922932447,
+    -0.017786430219868952
+   ]
+  },
+  "summed->component-wise": {
+   "mean": -0.052533903928560215,
+   "ci95": [
+    -0.0615285204860236,
+    -0.04339647730439708
+   ]
+  },
+  "component-wise->summed": {
+   "mean": 0.0020493166477491298,
+   "ci95": [
+    -0.00855037447962111,
+    0.013279191715437129
+   ]
+  }
+ },
+ "participants": [
+  {
+   "session_order": "summed second",
+   "summed->component-wise": -0.05780663058198354,
+   "component-wise->summed": 0.03961918844495205
+  },
+  {
+   "session_order": "summed first",
+   "summed->component-wise": -0.09219651236170445,
+   "component-wise->summed": -0.0035667762624753685
+  },
+  {
+   "session_order": "summed second",
+   "summed->component-wise": -0.038301080361277495,
+   "component-wise->summed": 0.0147963877387558
+  },
+  {
+   "session_order": "summed second",
+   "summed->component-wise": -0.027694768370202072,
+   "component-wise->summed": -0.026306413285886232
+  },
+  {
+   "session_order": "summed second",
+   "summed->component-wise": -0.02564045059422948,
+   "component-wise->summed": -0.0076696101056394905
+  },
+  {
+   "session_order": "summed first",
+   "summed->component-wise": -0.02897589818596502,
+   "component-wise->summed": 0.013233784986114827
+  },
+  {
+   "session_order": "summed second",
+   "summed->component-wise": -0.07756672196113978,
+   "component-wise->summed": 0.008650413775464605
+  },
+  {
+   "session_order": "summed first",
+   "summed->component-wise": -0.05307486076601142,
+   "component-wise->summed": 0.08761235557729719
+  },
+  {
+   "session_order": "summed first",
+   "summed->component-wise": -0.03135135061673233,
+   "component-wise->summed": 0.015493056369893399
+  },
+  {
+   "session_order": "summed first",
+   "summed->component-wise": -0.03015282518763862,
+   "component-wise->summed": 0.012964363209982288
+  },
+  {
+   "session_order": "summed first",
+   "summed->component-wise": -0.020264346955535806,
+   "component-wise->summed": 0.009172659600495181
+  },
+  {
+   "session_order": "summed first",
+   "summed->component-wise": -0.06246102309254792,
+   "component-wise->summed": -0.0006281088270103652
+  },
+  {
+   "session_order": "summed second",
+   "summed->component-wise": -0.04952647313448988,
+   "component-wise->summed": -0.013033778929585127
+  },
+  {
+   "session_order": "summed first",
+   "summed->component-wise": -0.09556241929721199,
+   "component-wise->summed": -0.015606590653781893
+  },
+  {
+   "session_order": "summed first",
+   "summed->component-wise": -0.07783617611811128,
+   "component-wise->summed": -0.0030515502496606395
+  },
+  {
+   "session_order": "summed second",
+   "summed->component-wise": -0.07201356475491938,
+   "component-wise->summed": 0.040524138485824146
+  },
+  {
+   "session_order": "summed second",
+   "summed->component-wise": -0.05542006732430971,
+   "component-wise->summed": -0.032101099071779715
+  },
+  {
+   "session_order": "summed second",
+   "summed->component-wise": 0.0033268928668083175,
+   "component-wise->summed": 0.01792158145141509
+  },
+  {
+   "session_order": "summed first",
+   "summed->component-wise": -0.041517817064421814,
+   "component-wise->summed": 0.02242452970258102
+  },
+  {
+   "session_order": "summed first",
+   "summed->component-wise": -0.019597397341908462,
+   "component-wise->summed": -0.038089901885306365
+  },
+  {
+   "session_order": "summed second",
+   "summed->component-wise": -0.07343649846129596,
+   "component-wise->summed": -0.03315938714452926
+  },
+  {
+   "session_order": "summed second",
+   "summed->component-wise": -0.0771292146959236,
+   "component-wise->summed": -0.058237534861872886
+  },
+  {
+   "session_order": "summed second",
+   "summed->component-wise": -0.0761182903852578,
+   "component-wise->summed": -0.04034055783328938
+  },
+  {
+   "session_order": "summed first",
+   "summed->component-wise": -0.08645276975626981,
+   "component-wise->summed": 0.010864680064947896
+  },
+  {
+   "session_order": "summed second",
+   "summed->component-wise": -0.06885641303826906,
+   "component-wise->summed": 0.044056595622487815
+  },
+  {
+   "session_order": "summed first",
+   "summed->component-wise": -0.04311786759629621,
+   "component-wise->summed": -0.001275605842103844
+  },
+  {
+   "session_order": "summed first",
+   "summed->component-wise": -0.03744145547980243,
+   "component-wise->summed": 0.024167186975135646
+  },
+  {
+   "session_order": "summed second",
+   "summed->component-wise": -0.05476330938303875,
+   "component-wise->summed": -0.03105314091545075
+  }
+ ]
+}
