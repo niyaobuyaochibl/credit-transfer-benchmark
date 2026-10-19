@@ -1,10 +1,10 @@
-﻿# credit-transfer-benchmark
+# credit-transfer-benchmark
 
 Replication package for:
 
 > Zhang, Y., Fan, J., Liu, Y., Zhang, W., & Yan, C. Evaluating models of human choice when feedback format changes: Input-representation controls, identifiability checks and second-task tests. Manuscript submitted to *Behavior Research Methods*.
 
-**Download:** the complete package (code, protocols, certificates, trained weights; 2,534 files) is attached to release [v1.0.2](https://github.com/niyaobuyaochibl/credit-transfer-benchmark/releases/tag/v1.0.2) as `replication_package.zip`. Unzip it and run `python replication_package/verify_package.py` to check every file against `MANIFEST.sha256`.
+**Download:** the complete package (code, protocols, certificates, trained weights; 2,538 files) is attached to release [v1.0.3](https://github.com/niyaobuyaochibl/credit-transfer-benchmark/releases/tag/v1.0.3) as `replication_package.zip`. Unzip it and run `python replication_package/verify_package.py` to check every file against `MANIFEST.sha256`.
 
 **Archived copy:** the same package is archived on Zenodo, [doi:10.5281/zenodo.23430697](https://doi.org/10.5281/zenodo.23430697) (this DOI always resolves to the latest version) (stored in 5 MB parts; `join_parts.py` rebuilds and checks the zip).
 
