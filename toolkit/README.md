@@ -1,6 +1,8 @@
 # transfer_check
 
-A small NumPy-only package for checking whether a model of human choice still predicts behaviour after the feedback format changes, for example from component-wise to summed outcome reports. Each module implements one or more steps of the checklist in Table 4 of the accompanying paper (Zhang, Fan, Liu, Zhang & Yan, submitted to *Behavior Research Methods*).
+A small NumPy-only package for checking whether a model of human choice still predicts behaviour after the feedback format changes, for example from component-wise to summed outcome reports. Each module implements one or more steps of the checklist in Table 1 of the accompanying paper (Zhang, Fan, Liu, Zhang & Yan, "Testing whether models of human learning generalize across feedback formats: A checklist, a worked example and software", submitted to *Behavior Research Methods*).
+
+The paper calls component-wise feedback "separate" feedback, held-out people "test participants" and the baseline B\* the "selected benchmark". The code and this README keep the earlier names.
 
 The package does not fit models. You bring your own models and their predicted choice probabilities; the package handles the parts of the evaluation that are easy to get wrong.
 
@@ -16,11 +18,11 @@ python examples/two_format_bandit.py
 
 | Step | What to do | Function |
 |---|---|---|
-| 1. Define the shift | Write each format as an observation matrix `F` (observed x latent outcome contributions) and report each transfer direction separately. `common_observation` returns the outcome information that every format reveals. | `common_observation`, `project`; directions in `transfer_contrast` |
-| 2. Add a shift-invariant control | Include a model that reads only the features from `common_observation`, so that its input is identical under every format. Match the candidate's parameter count as well. | `project` |
-| 3. Fix the comparison before testing | Pick the baseline on development people by a fixed rule, plan the number of held-out people for the smallest effect of interest, freeze code, fitted parameters and the selection, then open the held-out data once. The primary contrast is a person-level paired bootstrap stratified by design (for example, which format came first). | `select_baseline`, `Gate`, `transfer_contrast` |
-| 4. Check identifiability | Simulate learners with known mechanisms under each format, fit every candidate and see whether each mechanism is recovered. Models with identical predictions are reported as ties. | `recoverability` |
-| 5. Make effects interpretable | Report per-person counts and calibration next to mean negative log-likelihood, and convert per-choice differences into nats per session. | `person_scores`, `calibration`, `per_session` |
+| 1. Describe the change | Write each format as an observation matrix `F` (observed x latent outcome contributions) and report each transfer direction separately. `common_observation` returns the outcome information that every format reveals. | `common_observation`, `project`; directions in `transfer_contrast` |
+| 2. Add a format-blind benchmark | Include a model that reads only the features from `common_observation`, so that its input is identical under every format. Match the candidate's parameter count as well. | `project` |
+| 3. Fix the comparison before the test | Pick the baseline on development people by a fixed rule, plan the number of held-out people for the smallest effect of interest, freeze code, fitted parameters and the selection, then open the held-out data once. The primary contrast is a person-level paired bootstrap stratified by design (for example, which format came first). | `select_baseline`, `Gate`, `transfer_contrast` |
+| 4. Check model recovery in each format | Simulate learners with known mechanisms under each format, fit every candidate and see whether each mechanism is recovered. Models with identical predictions are reported as ties. | `recoverability` |
+| 5. Report interpretable effects and behavior | Report per-person counts and calibration next to mean negative log-likelihood, and convert per-choice differences into nats per session. Also compare one behavioral effect that differs between the formats in the participants and in each model's predictions; that check depends on the task and is not part of the package (the paper's script is `behavior_check.py` in the replication package). | `person_scores`, `calibration`, `per_session` |
 | 6. Test the winner on a second task | Refit all models on a task with a different observation structure and check where the transfer winner ranks before treating it as the reference. | (your models; scored with `person_scores`) |
 
 Conventions: choice arrays are people x trials with 0, 1, or -1 for a missing choice; probabilities are for choice 1; contrasts are baseline loss minus candidate loss, so positive values favour the candidate.
